@@ -1,5 +1,7 @@
 import sys
 import requests
+import validators
+#from django.core.validators import URLValidator
 
 #test to make sure file contains a string to test for URL
 def test_stdin_file(input_file):
@@ -53,19 +55,15 @@ def date_of_response(request):
 	date = header.get('Date')
 	return date
 
+def is_URL_valid(URL):
+	is_URL = validators.url(URL)
+	if not is_URL:
+		sys.stderr.write("This URL is not valid")
 
-#main function for tests
-def main():
-	input_file = sys.stdin.readlines()
-	test_stdin_file(input_file)
-
-	for line in input_file:
-		URL = line.strip()
-		#test_URL(URL)		
-		test_get_request(URL)
+	return is_URL
 
 
 
 
-main()
+
 	
