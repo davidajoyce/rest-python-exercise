@@ -9,7 +9,11 @@ def main():
 		URL = line.strip()
 	
 		if not rp.is_URL_valid(URL):
-			continue	
+			sys.stdout.write(rp.json_object_false(URL))
+			continue
+	
 		rp.test_get_request(URL)
+
+		sys.stdout.write(rp.json_object_true(URL))
 
 main()
