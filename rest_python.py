@@ -1,6 +1,7 @@
 import sys
 import requests
 import validators
+import urllib2
 #from django.core.validators import URLValidator
 
 #test to make sure file contains a string to test for URL
@@ -56,9 +57,15 @@ def date_of_response(request):
 	return date
 
 def is_URL_valid(URL):
-	is_URL = validators.url(URL)
-	if not is_URL:
+	try:
+		urllib2.urlopen(URL)		
+		return True
+	except ValueError, ex:
+		sys.stderr.write("This URL is not valid")	
+		return False
+	except urllib2.URLError, ex:
 		sys.stderr.write("This URL is not valid")
+		return False
 
 	return is_URL
 
