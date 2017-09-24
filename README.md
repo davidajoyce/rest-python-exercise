@@ -23,37 +23,37 @@ This python script was developed using python 2.7.12, make sure the correct vers
 
 Install the following python module using the following command line:
 
-'''
+```
 pip install requests
-'''
+```
 
 ## Running the tests
 
 To run the unit tests:
 
-'''
+```
 python validation_test.py
-'''
+```
 
-##Running the program:
+## Running the program:
 
 To run the program with a text file input:
 
 Enter the url strings in a newline separated .txt file:
 
-'''
+```
 http://www.bbc.co.uk/iplayer
 https://google.com
 bad://address
 http://www.bbc.co.uk/missing/thing
-'''
+```
 
 Use the following command line:
-'''
+```
 cat input.txt | python main.py
-'''
+```
 
 If you would like to output to a file, run the following command line:
-'''
+```
 cat input.txt | python main.py >> results.txt
-'''
+```
